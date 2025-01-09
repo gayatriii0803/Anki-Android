@@ -16,6 +16,7 @@
 
 package com.ichi2.anki.reviewer
 
+import com.ichi2.anki.CollectionManager.TR
 import com.ichi2.anki.Reviewer
 import com.ichi2.anki.cardviewer.ViewerCommand
 import com.ichi2.anki.reviewer.AutomaticAnswerAction.ANSWER_AGAIN
@@ -60,7 +61,7 @@ class AutomaticAnswerActionTest {
                 on { executeCommand(captor.capture()) } doReturn true
             }
 
-        action.execute(mock)
+        action.execute(mock, TR.studyingAnswerTimeElapsed())
 
         assertThat(captor.firstValue, equalTo(expectedCommand))
     }
