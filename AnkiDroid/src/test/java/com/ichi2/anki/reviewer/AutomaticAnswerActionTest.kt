@@ -60,7 +60,7 @@ class AutomaticAnswerActionTest {
                 on { executeCommand(captor.capture()) } doReturn true
             }
 
-        action.execute(mock)
+        action.execute(mock, "Question time elapsed")
 
         assertThat(captor.firstValue, equalTo(expectedCommand))
     }
